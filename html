@@ -1,0 +1,76 @@
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="os.js"></script>
+    <link rel="stylesheet" href="thread.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advanced Process Thread Manager</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="container">      
+        <div class="left-panel">
+            <div class="runtime-table">
+                <div class="controls">
+                    <div class="control-group">
+                        <button class="control-btn" onclick="addRandomThread()">
+                            <i class="fas fa-plus"></i> Add Thread
+                        </button>
+                        <button class="control-btn reset" onclick="resetSystem()">
+                            <i class="fas fa-redo"></i> Reset
+                        </button>
+                    </div>
+                    <div>
+                        <span style="font-size: 14px; color: #7f8c8d;">Cores: </span>
+                        <select id="core-selector" onchange="changeCores()" style="padding: 5px; border-radius: 4px; border: 1px solid #ddd;">
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="4" selected>4</option>
+                            <option value="8">8</option>
+                        </select>
+                    </div>
+                </div>
+                <table id="runtimeTable">
+                    <thead>
+                        <tr>
+                            <th>Thread ID</th>
+                            <th>Priority</th>
+                            <th>Runtime (s)</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody id="runtimeTableBody">
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="right-panel">
+            <h1><i class="fas fa-tasks"></i>  Real Time Multi-Threading</h1>
+            <div class="metrics">
+                <div>
+                    <h3>Active Threads</h3>
+                    <p id="active-threads">0</p>
+                </div>
+                <div>
+                    <h3>CPU Cores</h3>
+                    <p id="cpu-cores">4</p>
+                </div>
+                <div>
+                    <h3>Total Time</h3>
+                    <p id="total-time">0.0s</p>
+                </div>
+                <div class="progress-container">
+                    <h3>CPU Utilization</h3>
+                    <div class="progress-bar">
+                        <div class="progress" id="cpu-progress" style="width: 0%"></div>
+                    </div>
+                    <p id="cpu-usage">0.0%</p>
+                </div>
+            </div>
+            <div class="threads" id="threadsContainer">
+            </div>
+        </div>
+    </div>
+</body>
+</html>
